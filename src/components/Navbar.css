@@ -1,0 +1,33 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 5px solid #490773;
+  border-bottom: 1px solid #c3c2c4;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+.hamburger {
+  flex: 1;
+  padding: 10px;
+  font-size: 30px;
+  align-items: center;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+  background-color: #490773;
+  color: white;
+}
