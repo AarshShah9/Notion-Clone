@@ -1,0 +1,12 @@
+.main-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu {
+  flex: 1;
+}
+
+.editor {
+  flex: 3;
+}

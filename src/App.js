@@ -7,7 +7,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           {/* <Route path="/users/:noteId" element={<h1>test</h1>}></Route> */}
-          <Route path="/" element={<h1 id="content">lol</h1>}></Route>
+          <Route path="/" element={<h1 id="content"></h1>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
