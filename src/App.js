@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route
-            path="/edit/1"
+            path="/:index/edit"
             element={
               <h1 id="content">
                 <Editor />

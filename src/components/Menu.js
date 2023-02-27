@@ -5,38 +5,25 @@ import { useNavigate } from "react-router-dom";
 
 function Menu() {
   const Navigate = useNavigate();
-  const [notes, setNotes] = useState([]);
+
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes") || [])
+  );
+
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-  };
-
-  const formatDate = (when) => {
-    const formatted = new Date(when).toLocaleString("en-US", options);
-    if (formatted === "Invalid Date") {
-      return "";
-    }
-    return formatted;
-  };
-
   const addHandler = () => {
-    const currentDay = new Date();
     const newNote = {
       id: uuidv4(),
       title: "Untitled",
-      time: formatDate(currentDay),
+      time: new Date(),
       content: "",
       index: notes.length + 1,
     };
     setNotes([...notes, newNote]);
-    Navigate(`/edit/${newNote.index}`);
+    Navigate(`/${newNote.index}/edit`);
   };
 
   return (
