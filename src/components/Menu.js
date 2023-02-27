@@ -2,6 +2,7 @@ import "../components/Menu.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState, React, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import NoteCard from "./NoteCard";
 
 function Menu() {
   const Navigate = useNavigate();
@@ -34,7 +35,9 @@ function Menu() {
           +
         </b>
       </div>
-      {}
+      {notes.map((note) => (
+        <NoteCard info={note} key={note.id} />
+      ))}
     </section>
   );
 }
