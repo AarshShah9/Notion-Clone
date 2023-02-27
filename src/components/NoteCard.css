@@ -1,3 +1,9 @@
 .note-wrapper {
   padding: 10px;
 }
+
+.note:hover {
+  background-color: #490773;
+  color: white;
+  cursor: pointer;
+}

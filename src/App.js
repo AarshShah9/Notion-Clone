@@ -16,6 +16,14 @@ function App() {
               </h1>
             }
           ></Route>
+          <Route
+            path="/:index"
+            element={
+              <h1 id="content">
+                Content <Editor />
+              </h1>
+            }
+          ></Route>
           <Route path="/" element={<h1 id="content">testing</h1>}></Route>
         </Route>
       </Routes>

@@ -1,19 +1,12 @@
 import "../components/Menu.css";
 import { v4 as uuidv4 } from "uuid";
 import { useState, React, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import NoteCard from "./NoteCard";
+import { Outlet, useNavigate } from "react-router-dom";
 
-function Menu() {
+function Menu(props) {
+  const { selectHandler, notes, setNotes } = props;
   const Navigate = useNavigate();
-
-  const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem("notes") || [])
-  );
-
-  useEffect(() => {
-    localStorage.setItem("notes", JSON.stringify(notes));
-  }, [notes]);
 
   const addHandler = () => {
     const newNote = {
@@ -36,7 +29,7 @@ function Menu() {
         </b>
       </div>
       {notes.map((note) => (
-        <NoteCard info={note} key={note.id} />
+        <NoteCard info={note} key={note.id} selectHandler={selectHandler} />
       ))}
     </section>
   );
