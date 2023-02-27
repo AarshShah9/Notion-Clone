@@ -26,6 +26,15 @@ function Layout() {
     Navigate(`/${note.index}`);
   };
 
+  const deleteHandler = (id) => {
+    const answer = window.confirm("Are you sure?");
+    if (answer) {
+      const newNotes = notes.filter((note) => note.id !== id);
+      setNotes(newNotes);
+      Navigate("/");
+    }
+  };
+
   const options = {
     year: "numeric",
     month: "long",
@@ -56,7 +65,9 @@ function Layout() {
         ) : null}
         <div id="content">
           {/* child components get injected here and replace <Outlet /> */}
-          <Outlet context={[notes, setNotes, formatDate]} />
+          <Outlet
+            context={[notes, setNotes, setNotes, formatDate, deleteHandler]}
+          />
         </div>
       </section>
     </div>

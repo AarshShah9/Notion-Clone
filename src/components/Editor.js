@@ -6,8 +6,8 @@ import "../components/Editor.css";
 
 function Editor() {
   var { index } = useParams();
-  const [notes, setNotes, formatDate] = useOutletContext();
-  const [readOnly, setReadOnly] = useState(false);
+  const [notes, setNotes, formatDate, saveHandler, deleteHandler] =
+    useOutletContext();
   const [currNote, setCurrNote] = useState(
     notes.find((note) => note.index === parseInt(index))
   );
@@ -74,13 +74,13 @@ function Editor() {
             value={convertDatetoLocal(currNote.time)}
           />
         </div>
-        <div>{readOnly ? "Edit" : "Save"}</div>
-        <div>Delete</div>
+        <div onClick={saveHandler}>Save</div>
+        <div onClick={() => deleteHandler(currNote.id)}>Delete</div>
       </div>
 
       <ReactQuill
         theme="snow"
-        onChange={(e) => setCurrNote(e)}
+        onChange={(e) => setCurrNote(e)} // fix this
         value={currNote}
       />
     </section>

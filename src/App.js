@@ -20,11 +20,11 @@ function App() {
             path="/:index"
             element={
               <h1 id="content">
-                Content <Editor />
+                <Editor />
               </h1>
             }
           ></Route>
-          <Route path="/" element={<h1 id="content">testing</h1>}></Route>
+          <Route path="/" element={<h1 id="content"></h1>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
