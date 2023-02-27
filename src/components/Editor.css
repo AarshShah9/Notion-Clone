@@ -1,3 +1,21 @@
 .editor {
   flex: 3;
 }
+
+.header-section div {
+  font-size: 1.2rem;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}

@@ -14,7 +14,7 @@ function Layout() {
   );
 
   useEffect(() => {
-    localStorage.setItem("notes", JSON.stringify(notes));
+    localStorage.setItem("notes", JSON.stringify(notes) || []);
   }, [notes]);
 
   const menuHandler = () => {
@@ -26,6 +26,22 @@ function Layout() {
     Navigate(`/${note.index}`);
   };
 
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
+
+  const formatDate = (when) => {
+    const formatted = new Date(when).toLocaleString("en-US", options);
+    if (formatted === "Invalid Date") {
+      return "";
+    }
+    return formatted;
+  };
+
   return (
     <div className="layout">
       <Navbar menuHandler={menuHandler} />
@@ -35,11 +51,12 @@ function Layout() {
             selectHandler={selectHandler}
             notes={notes}
             setNotes={setNotes}
+            formatDate={formatDate}
           />
         ) : null}
         <div id="content">
           {/* child components get injected here and replace <Outlet /> */}
-          <Outlet context={[notes, setNotes]} />
+          <Outlet context={[notes, setNotes, formatDate]} />
         </div>
       </section>
     </div>

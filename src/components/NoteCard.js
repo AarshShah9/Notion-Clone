@@ -4,22 +4,8 @@ import "../components/NoteCard.css";
 function NoteCard(props) {
   const note = props.info;
   const selectHandler = props.selectHandler;
+  const formatDate = props.formatDate;
 
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-  };
-
-  const formatDate = (when) => {
-    const formatted = new Date(when).toLocaleString("en-US", options);
-    if (formatted === "Invalid Date") {
-      return "";
-    }
-    return formatted;
-  };
   return (
     <div className="note" key={note.id} onClick={() => selectHandler(note.id)}>
       <div className="note-wrapper">

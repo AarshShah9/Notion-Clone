@@ -5,7 +5,7 @@ import NoteCard from "./NoteCard";
 import { Outlet, useNavigate } from "react-router-dom";
 
 function Menu(props) {
-  const { selectHandler, notes, setNotes } = props;
+  const { selectHandler, notes, setNotes, formatDate } = props;
   const Navigate = useNavigate();
 
   const addHandler = () => {
@@ -29,7 +29,12 @@ function Menu(props) {
         </b>
       </div>
       {notes.map((note) => (
-        <NoteCard info={note} key={note.id} selectHandler={selectHandler} />
+        <NoteCard
+          info={note}
+          key={note.id}
+          selectHandler={selectHandler}
+          formatDate={formatDate}
+        />
       ))}
     </section>
   );
