@@ -26,6 +26,24 @@ function Layout() {
     Navigate(`/${note.index}`);
   };
 
+  const saveHandler = (updatedNote) => {
+    // find the note in the notes array
+    // replace the updated note with the old note in state
+    console.log(updatedNote);
+    // navigate off of edit mode
+    const noteIndex = notes.map((note, index) => {
+      if (note.id === updatedNote.id) {
+        return index;
+      }
+    });
+    setNotes([
+      ...notes.slice(0, noteIndex - 1),
+      updatedNote,
+      ...notes.slice(noteIndex + 1),
+    ]);
+    Navigate(`/${updatedNote.index}}`);
+  };
+
   const deleteHandler = (id) => {
     const answer = window.confirm("Are you sure?");
     if (answer) {
@@ -71,7 +89,7 @@ function Layout() {
         <div id="content">
           {/* child components get injected here and replace <Outlet /> */}
           <Outlet
-            context={[notes, setNotes, setNotes, formatDate, deleteHandler]}
+            context={[notes, setNotes, formatDate, saveHandler, deleteHandler]}
           />
         </div>
       </section>

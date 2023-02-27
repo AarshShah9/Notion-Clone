@@ -2,6 +2,12 @@
   flex: 3;
 }
 
+.editor .btn:hover {
+  background-color: #490773;
+  color: white;
+  cursor: pointer;
+}
+
 .header-section div {
   font-size: 1.2rem;
 }

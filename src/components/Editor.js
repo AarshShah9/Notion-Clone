@@ -74,8 +74,12 @@ function Editor() {
             value={convertDatetoLocal(currNote.time)}
           />
         </div>
-        <div onClick={saveHandler}>Save</div>
-        <div onClick={() => deleteHandler(currNote.id)}>Delete</div>
+        <div className="btn" onClick={() => saveHandler(currNote)}>
+          Save
+        </div>
+        <div className="btn" onClick={() => deleteHandler(currNote.id)}>
+          Delete
+        </div>
       </div>
 
       <ReactQuill
