@@ -30,6 +30,11 @@ function Layout() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
       const newNotes = notes.filter((note) => note.id !== id);
+
+      newNotes.forEach((note, index) => {
+        note.index = index + 1;
+      });
+
       setNotes(newNotes);
       Navigate("/");
     }
