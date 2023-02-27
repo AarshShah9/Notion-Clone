@@ -1,4 +1,19 @@
+.menu {
+  border-right: 1px solid #c3c2c4;
+}
+
+.add {
+  font-size: 1.5rem;
+}
+
+.add:hover {
+  background-color: #490773;
+  color: white;
+  cursor: pointer;
+}
+
 .mini-header {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #c3c2c4;
 }
