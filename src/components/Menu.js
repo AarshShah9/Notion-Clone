@@ -24,18 +24,24 @@ function Menu(props) {
     <section className="menu">
       <div className="mini-header">
         <h3>Notes</h3>
-        <b className="add" onClick={addHandler}>
-          +
-        </b>
+        <div className="add-wrapper">
+          <b className="add" onClick={addHandler}>
+            +
+          </b>
+        </div>
       </div>
-      {notes.map((note) => (
-        <NoteCard
-          info={note}
-          key={note.id}
-          selectHandler={selectHandler}
-          formatDate={formatDate}
-        />
-      ))}
+      {notes ? (
+        notes.map((note) => (
+          <NoteCard
+            info={note}
+            key={note.id}
+            selectHandler={selectHandler}
+            formatDate={formatDate}
+          />
+        ))
+      ) : (
+        <p>No Notes Yet</p>
+      )}
     </section>
   );
 }

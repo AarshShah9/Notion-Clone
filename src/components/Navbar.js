@@ -3,19 +3,17 @@ import "../components/Navbar.css";
 
 function Navbar(props) {
   return (
-    <div>
-      <nav>
-        <div className="hamburger" onClick={props.menuHandler}>
-          &#9776;
-        </div>
+    <nav>
+      <div className="wrapper" onClick={props.menuHandler}>
+        <div className="burger"> &#9776;</div>
+      </div>
 
-        <div className="title">
-          <h1>Lotion</h1> <p>Like Notion, but worse.</p>
-        </div>
+      <div className="title">
+        <h1>Lotion</h1> <p>Like Notion, but worse.</p>
+      </div>
 
-        <div className="spacer"></div>
-      </nav>
-    </div>
+      <div className="spacer"></div>
+    </nav>
   );
 }
 
