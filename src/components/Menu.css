@@ -44,10 +44,11 @@
   color: white;
   cursor: pointer;
 }
-/* 
+
 #all-cards {
-  overflow-y: scroll;
-} */
+  /* overflow-y: scroll */
+  /* height: 100%; */
+}
 
 .no-notes {
   padding-top: 20px;

@@ -1,7 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Editor from "./components/Editor";
+import Viewer from "./components/Viewer";
 import "./App.css";
+
+// fix scroll bar on entire page and addd scroll for the menu
 
 function App() {
   return (
@@ -20,13 +23,18 @@ function App() {
             path="/:index"
             element={
               <div id="content">
+                {/* <Viewer /> */}
                 <Editor />
               </div>
             }
           ></Route>
           <Route
             path="/"
-            element={<div id="content" className="menu-spacer"></div>}
+            element={
+              <div id="content" className="menu-spacer">
+                Select a note, or create a new one
+              </div>
+            }
           ></Route>
         </Route>
       </Routes>

@@ -29,18 +29,25 @@ function Layout() {
   const saveHandler = (updatedNote) => {
     // find the note in the notes array
     // replace the updated note with the old note in state
-    console.log(updatedNote);
     // navigate off of edit mode
-    const noteIndex = notes.map((note, index) => {
-      if (note.id === updatedNote.id) {
-        return index;
+    let noteIndex;
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].id === updatedNote.id) {
+        noteIndex = i;
       }
-    });
-    setNotes([
-      ...notes.slice(0, noteIndex - 1),
-      updatedNote,
-      ...notes.slice(noteIndex + 1),
-    ]);
+    }
+
+    // notes[noteIndex] = updatedNote;
+
+    setNotes(
+      notes.map((note) => {
+        if (note.id === updatedNote.id) {
+          return updatedNote;
+        }
+        return note;
+      })
+    );
+
     Navigate(`/${updatedNote.index}}`);
   };
 

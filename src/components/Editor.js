@@ -49,6 +49,13 @@ function Editor() {
     return `${year}-${month}-${day}T${hour}:${minute}`;
   };
 
+  const onChangeHandler = (e) => {
+    setCurrNote({
+      ...currNote,
+      content: e,
+    });
+  };
+
   return (
     <section className="editor">
       <div className="header-section">
@@ -89,8 +96,8 @@ function Editor() {
       <ReactQuill
         className="quill"
         theme="snow"
-        onChange={(e) => setCurrNote(e)} // fix this
-        value={currNote}
+        onChange={onChangeHandler}
+        value={currNote.content}
       />
     </section>
   );

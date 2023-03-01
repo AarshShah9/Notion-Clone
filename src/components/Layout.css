@@ -9,6 +9,7 @@
 
 .menu {
   flex: 1;
+  height: 100%;
 }
 
 .editor {
@@ -20,4 +21,12 @@
   flex: 3;
   flex-direction: column;
   height: 100%;
+}
+
+.menu-spacer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(136, 138, 140);
+  font-size: 1.5em;
 }

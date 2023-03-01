@@ -16,9 +16,13 @@ a {
 }
 
 body {
-  height: 100vh;
+  height: 97vh;
 }
 
 #root {
+  height: 100%;
+}
+
+#content {
   height: 100%;
 }

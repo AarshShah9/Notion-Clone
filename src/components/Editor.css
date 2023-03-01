@@ -1,5 +1,6 @@
 .editor {
   flex: 3;
+  height: 100%;
 }
 
 .header-section div {
@@ -78,4 +79,8 @@
   background-color: #490773;
   color: white;
   cursor: pointer;
+}
+
+.ql-editor {
+  border-left: none;
 }
