@@ -1,5 +1,7 @@
 import { useState, React, useEffect } from "react";
 import Navbar from "./Navbar";
+import { v4 as uuidv4 } from "uuid";
+
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 
 import Menu from "./Menu";
@@ -43,9 +45,6 @@ function Layout() {
         noteIndex = i;
       }
     }
-
-    // notes[noteIndex] = updatedNote;
-
     setNotes(
       notes.map((note) => {
         if (note.id === updatedNote.id) {
@@ -56,6 +55,21 @@ function Layout() {
     );
 
     Navigate(`/${updatedNote.index}}`);
+  };
+
+  const addHandler = () => {
+    const newNote = {
+      id: uuidv4(),
+      title: "Untitled",
+      time: new Date(),
+      content: "",
+      index: notes.length + 1,
+    };
+    console.log(notes);
+    setNotes([...notes, newNote]);
+    console.log(notes);
+
+    Navigate(`/${newNote.index}/edit`);
   };
 
   const deleteHandler = (id) => {
@@ -99,6 +113,7 @@ function Layout() {
             setNotes={setNotes}
             formatDate={formatDate}
             index={index}
+            addHandler={addHandler}
           />
         ) : null}
 
