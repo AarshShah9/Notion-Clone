@@ -2,12 +2,6 @@
   flex: 3;
 }
 
-.editor .btn:hover {
-  background-color: #490773;
-  color: white;
-  cursor: pointer;
-}
-
 .header-section div {
   font-size: 1.2rem;
 }
@@ -15,15 +9,36 @@
 .header-section {
   display: flex;
   justify-content: space-between;
+  height: 75px;
   align-items: center;
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc;
 }
 
 .input-block {
   display: flex;
   flex-direction: column;
-  margin: 0.5rem;
+  flex: 3;
+  height: 100%;
+  justify-content: space-evenly;
+  padding-left: 10px;
+}
+
+.title-input {
+  border: none;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.title-input:focus {
+  outline: none;
+}
+
+.date-input {
+  border: none;
+  width: 175px;
+}
+
+.date-input:focus {
+  outline: none;
 }
 
 .quill {
@@ -31,4 +46,36 @@
   padding: 0;
   margin: 0;
   border: none;
+}
+
+.btns {
+  display: flex;
+  height: 100%;
+  flex: 1;
+  justify-content: right;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .btns {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+.btn {
+  height: 100%;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editor .btn:hover {
+  background-color: #490773;
+  color: white;
+  cursor: pointer;
 }

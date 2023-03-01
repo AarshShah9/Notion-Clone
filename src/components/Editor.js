@@ -54,6 +54,7 @@ function Editor() {
       <div className="header-section">
         <div className="input-block">
           <input
+            className="title-input"
             type="text"
             onChange={(e) => {
               setCurrNote({
@@ -64,6 +65,7 @@ function Editor() {
             value={currNote.title}
           />
           <input
+            className="date-input"
             type="datetime-local"
             onChange={(e) => {
               setCurrNote({
@@ -74,11 +76,13 @@ function Editor() {
             value={convertDatetoLocal(currNote.time)}
           />
         </div>
-        <div className="btn" onClick={() => saveHandler(currNote)}>
-          Save
-        </div>
-        <div className="btn" onClick={() => deleteHandler(currNote.id)}>
-          Delete
+        <div className="btns">
+          <div className="btn" onClick={() => saveHandler(currNote)}>
+            Save
+          </div>
+          <div className="btn" onClick={() => deleteHandler(currNote.id)}>
+            Delete
+          </div>
         </div>
       </div>
 
