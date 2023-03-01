@@ -1,7 +1,10 @@
 .main-section {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: 100%;
+}
+.layout {
+  height: 100%;
 }
 
 .menu {
@@ -10,4 +13,11 @@
 
 .editor {
   flex: 3;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  height: 100%;
 }

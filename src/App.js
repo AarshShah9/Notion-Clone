@@ -11,20 +11,23 @@ function App() {
           <Route
             path="/:index/edit"
             element={
-              <h1 id="content">
+              <div id="content">
                 <Editor />
-              </h1>
+              </div>
             }
           ></Route>
           <Route
             path="/:index"
             element={
-              <h1 id="content">
+              <div id="content">
                 <Editor />
-              </h1>
+              </div>
             }
           ></Route>
-          <Route path="/" element={<h1 id="content"></h1>}></Route>
+          <Route
+            path="/"
+            element={<div id="content" className="menu-spacer"></div>}
+          ></Route>
         </Route>
       </Routes>
     </BrowserRouter>

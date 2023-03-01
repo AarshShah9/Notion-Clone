@@ -10,7 +10,7 @@ function NoteCard(props) {
 
   return (
     <div
-      className={+note.index == index ? "note active" : "note"}
+      className={note.index === +index ? "note active" : "note"}
       key={note.id}
       onClick={() => selectHandler(note.id)}
     >

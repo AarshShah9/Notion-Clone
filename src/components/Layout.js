@@ -86,11 +86,20 @@ function Layout() {
             formatDate={formatDate}
           />
         ) : null}
-        <div id="content">
-          {/* child components get injected here and replace <Outlet /> */}
-          <Outlet
-            context={[notes, setNotes, formatDate, saveHandler, deleteHandler]}
-          />
+
+        <div className="content-wrapper">
+          <div id="content">
+            {/* child components get injected here and replace <Outlet /> */}
+            <Outlet
+              context={[
+                notes,
+                setNotes,
+                formatDate,
+                saveHandler,
+                deleteHandler,
+              ]}
+            />
+          </div>
         </div>
       </section>
     </div>

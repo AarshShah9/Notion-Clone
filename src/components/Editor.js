@@ -83,6 +83,7 @@ function Editor() {
       </div>
 
       <ReactQuill
+        className="quill"
         theme="snow"
         onChange={(e) => setCurrNote(e)} // fix this
         value={currNote}

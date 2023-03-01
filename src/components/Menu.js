@@ -1,8 +1,8 @@
 import "../components/Menu.css";
 import { v4 as uuidv4 } from "uuid";
-import { useState, React, useEffect } from "react";
+import { React } from "react";
 import NoteCard from "./NoteCard";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Menu(props) {
   const { selectHandler, notes, setNotes, formatDate } = props;
@@ -23,25 +23,29 @@ function Menu(props) {
   return (
     <section className="menu">
       <div className="mini-header">
-        <h3>Notes</h3>
+        <div className="title-wrapper">
+          <h3>Notes</h3>
+        </div>
         <div className="add-wrapper">
           <b className="add" onClick={addHandler}>
             +
           </b>
         </div>
       </div>
-      {notes ? (
-        notes.map((note) => (
-          <NoteCard
-            info={note}
-            key={note.id}
-            selectHandler={selectHandler}
-            formatDate={formatDate}
-          />
-        ))
-      ) : (
-        <p>No Notes Yet</p>
-      )}
+      <div id="all-cards">
+        {notes.length !== 0 ? (
+          notes.map((note) => (
+            <NoteCard
+              info={note}
+              key={note.id}
+              selectHandler={selectHandler}
+              formatDate={formatDate}
+            />
+          ))
+        ) : (
+          <p className="no-notes">No Notes Yet</p>
+        )}
+      </div>
     </section>
   );
 }
