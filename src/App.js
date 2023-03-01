@@ -5,6 +5,7 @@ import Viewer from "./components/Viewer";
 import "./App.css";
 
 // fix scroll bar on entire page and addd scroll for the menu
+// prevent app from breaking if user navigates to a note that doesn't exist (or any page for that matter)
 
 function App() {
   return (
