@@ -1,20 +1,24 @@
-import { useParams, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import { useState, React, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../components/Editor.css";
 
 function Editor() {
-  var { index } = useParams();
-  const [notes, setNotes, formatDate, saveHandler, deleteHandler] =
-    useOutletContext();
-  const [currNote, setCurrNote] = useState(
-    notes.find((note) => note.index === parseInt(index))
-  );
+  const [
+    notes,
+    setNotes,
+    formatDate,
+    saveHandler,
+    deleteHandler,
+    currNote,
+    setCurrNote,
+    index,
+  ] = useOutletContext();
 
   useEffect(() => {
     setCurrNote(notes.find((note) => note.index === parseInt(index)));
-  }, [index]);
+  }, [index, notes]);
 
   const convertLocaltoDate = (date) => {
     const year = date.slice(0, 4);

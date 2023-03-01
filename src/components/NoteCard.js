@@ -1,12 +1,12 @@
-import React from "react";
+import { React, useEffect } from "react";
 import "../components/NoteCard.css";
-import { useParams } from "react-router-dom";
 
 function NoteCard(props) {
-  const { index } = useParams();
   const note = props.info;
   const selectHandler = props.selectHandler;
   const formatDate = props.formatDate;
+  const index = props.index;
+  let subString = note.content.slice(3).slice(0, -4);
 
   return (
     <div
@@ -18,9 +18,9 @@ function NoteCard(props) {
         <h3>{note.title}</h3>
         <p>{note.content.length > 0 ? formatDate(note.time) : null}</p>
         <p>
-          {note.content.length > 10 && note.content.length > 0
-            ? note.content.slice(0, 10) + "..."
-            : note.content}
+          {note.content.length > 60 && note.content.length > 0
+            ? subString.slice(0, 60) + "..."
+            : subString}
           {note.content.length === 0 && "..."}
         </p>
       </div>

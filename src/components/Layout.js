@@ -1,16 +1,22 @@
 import { useState, React, useEffect } from "react";
 import Navbar from "./Navbar";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 
 import Menu from "./Menu";
 import "../components/Layout.css";
 
 function Layout() {
+  var { index } = useParams();
+
   const [menu, setMenu] = useState(true);
   const Navigate = useNavigate();
 
   const [notes, setNotes] = useState(
     JSON.parse(localStorage.getItem("notes") || [])
+  );
+
+  const [currNote, setCurrNote] = useState(
+    notes.find((note) => note.index === parseInt(index))
   );
 
   useEffect(() => {
@@ -23,6 +29,7 @@ function Layout() {
 
   const selectHandler = (id) => {
     const note = notes.find((note) => note.id === id);
+    setCurrNote(note);
     Navigate(`/${note.index}`);
   };
 
@@ -91,6 +98,7 @@ function Layout() {
             notes={notes}
             setNotes={setNotes}
             formatDate={formatDate}
+            index={index}
           />
         ) : null}
 
@@ -104,6 +112,9 @@ function Layout() {
                 formatDate,
                 saveHandler,
                 deleteHandler,
+                currNote,
+                setCurrNote,
+                index,
               ]}
             />
           </div>
