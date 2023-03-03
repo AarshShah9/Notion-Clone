@@ -12,6 +12,7 @@ function Menu(props) {
         <div className="title-wrapper">
           <h3>Notes</h3>
         </div>
+
         <div className="add-wrapper">
           <b className="add" onClick={addHandler}>
             +
