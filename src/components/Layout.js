@@ -101,7 +101,7 @@ function Layout() {
 
   return (
     <div className="layout">
-      {/* <Navbar menuHandler={menuHandler} /> */}
+      <Navbar menuHandler={menuHandler} />
       <section className="main-section">
         {menu ? (
           <Menu
