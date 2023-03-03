@@ -9,14 +9,12 @@ import "../components/Layout.css";
 
 function Layout() {
   var { index } = useParams();
-
-  const [menu, setMenu] = useState(true);
   const Navigate = useNavigate();
 
+  const [menu, setMenu] = useState(true);
   const [notes, setNotes] = useState(
     JSON.parse(localStorage.getItem("notes") || "[]")
   );
-
   const [currNote, setCurrNote] = useState(
     notes.find((note) => note.index === parseInt(index))
   );
@@ -36,9 +34,6 @@ function Layout() {
   };
 
   const saveHandler = (updatedNote) => {
-    // find the note in the notes array
-    // replace the updated note with the old note in state
-    // navigate off of edit mode
     let noteIndex;
     for (let i = 0; i < notes.length; i++) {
       if (notes[i].id === updatedNote.id) {
@@ -53,8 +48,7 @@ function Layout() {
         return note;
       })
     );
-
-    Navigate(`/${updatedNote.index}}`);
+    Navigate(`/${updatedNote.index}`);
   };
 
   const addHandler = () => {
@@ -81,6 +75,10 @@ function Layout() {
       setNotes(newNotes);
       Navigate("/");
     }
+  };
+
+  const editHandler = () => {
+    Navigate(`/${currNote.index}/edit`);
   };
 
   const options = {
@@ -126,6 +124,7 @@ function Layout() {
                 currNote,
                 setCurrNote,
                 index,
+                editHandler,
               ]}
             />
           </div>

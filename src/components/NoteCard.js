@@ -16,9 +16,11 @@ function NoteCard(props) {
     >
       <div className="note-wrapper">
         <h3>{note.title}</h3>
-        <p>{note.content.length > 0 ? formatDate(note.time) : null}</p>
+        <p className="formatted-date">
+          {note.content.length > 0 ? formatDate(note.time) : null}
+        </p>
         <p>
-          {note.content.length > 60 && note.content.length > 0
+          {note.content.length > 60
             ? subString.slice(0, 60) + "..."
             : subString}
           {note.content.length === 0 && "..."}

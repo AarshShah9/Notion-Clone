@@ -2,7 +2,7 @@ nav {
   height: 60px;
   display: flex;
   align-items: center;
-  border-top: 5px solid #490773;
+  border-top: 5px solid #483c54;
   border-bottom: 1px solid #c3c2c4;
 }
 
@@ -37,6 +37,6 @@ h1 {
 
 .burger:hover {
   cursor: pointer;
-  background-color: #490773;
+  background-color: #483c54;
   color: white;
 }

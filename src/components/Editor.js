@@ -14,6 +14,7 @@ function Editor() {
     currNote,
     setCurrNote,
     index,
+    editHandler,
   ] = useOutletContext();
 
   useEffect(() => {

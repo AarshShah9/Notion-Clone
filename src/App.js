@@ -6,6 +6,8 @@ import "./App.css";
 
 // fix scroll bar on entire page and addd scroll for the menu
 // prevent app from breaking if user navigates to a note that doesn't exist (or any page for that matter)
+// fixed adding a new note but having state still reference the old one
+// fix text parsing issue because the text wont always be <p> so.
 
 function App() {
   return (
@@ -24,8 +26,8 @@ function App() {
             path="/:index"
             element={
               <div id="content">
-                {/* <Viewer /> */}
-                <Editor />
+                <Viewer />
+                {/* <Editor /> */}
               </div>
             }
           ></Route>
