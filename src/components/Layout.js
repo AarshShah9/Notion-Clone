@@ -14,7 +14,7 @@ function Layout() {
   const Navigate = useNavigate();
 
   const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem("notes") || [])
+    JSON.parse(localStorage.getItem("notes") || "[]")
   );
 
   const [currNote, setCurrNote] = useState(
@@ -22,7 +22,7 @@ function Layout() {
   );
 
   useEffect(() => {
-    localStorage.setItem("notes", JSON.stringify(notes) || []);
+    localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
   const menuHandler = () => {
@@ -65,10 +65,7 @@ function Layout() {
       content: "",
       index: notes.length + 1,
     };
-    console.log(notes);
     setNotes([...notes, newNote]);
-    console.log(notes);
-
     Navigate(`/${newNote.index}/edit`);
   };
 
@@ -104,7 +101,7 @@ function Layout() {
 
   return (
     <div className="layout">
-      <Navbar menuHandler={menuHandler} />
+      {/* <Navbar menuHandler={menuHandler} /> */}
       <section className="main-section">
         {menu ? (
           <Menu
@@ -119,7 +116,6 @@ function Layout() {
 
         <div className="content-wrapper">
           <div id="content">
-            {/* child components get injected here and replace <Outlet /> */}
             <Outlet
               context={[
                 notes,

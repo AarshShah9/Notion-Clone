@@ -1,12 +1,10 @@
 import "../components/Menu.css";
 import { React } from "react";
 import NoteCard from "./NoteCard";
-import { useNavigate } from "react-router-dom";
 
 function Menu(props) {
   const { selectHandler, notes, setNotes, formatDate, index, addHandler } =
     props;
-  const Navigate = useNavigate();
 
   return (
     <section className="menu">
