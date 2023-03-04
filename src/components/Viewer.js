@@ -20,7 +20,12 @@ function Viewer() {
     <section className="editor">
       <div className="header-section">
         <div className="input-block">
-          <h2>{currNote.title}</h2>
+          <h2>
+            {currNote.title.length < 20
+              ? currNote.title
+              : currNote.title.slice(0, 17) + "..."}
+          </h2>
+
           <p className="formatted-date">{formatDate(currNote.time)}</p>
         </div>
         <div className="btns">

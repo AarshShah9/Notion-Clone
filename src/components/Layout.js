@@ -15,13 +15,27 @@ function Layout() {
   const [notes, setNotes] = useState(
     JSON.parse(localStorage.getItem("notes") || "[]")
   );
+
   const [currNote, setCurrNote] = useState(
     notes.find((note) => note.index === parseInt(index))
   );
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
-  }, [notes]);
+  }, [notes, currNote]);
+
+  useEffect(() => {
+    let noteExists = false;
+
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].index === parseInt(index)) {
+        noteExists = true;
+      }
+    }
+    if (noteExists === false) {
+      Navigate("/");
+    }
+  }, [index]);
 
   const menuHandler = () => {
     setMenu(!menu);
@@ -60,6 +74,7 @@ function Layout() {
       index: notes.length + 1,
     };
     setNotes([...notes, newNote]);
+    setCurrNote(newNote);
     Navigate(`/${newNote.index}/edit`);
   };
 

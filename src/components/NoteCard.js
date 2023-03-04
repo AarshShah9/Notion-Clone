@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 import "../components/NoteCard.css";
 
 function NoteCard(props) {
@@ -6,7 +6,6 @@ function NoteCard(props) {
   const selectHandler = props.selectHandler;
   const formatDate = props.formatDate;
   const index = props.index;
-  let subString = note.content.slice(3).slice(0, -4);
 
   return (
     <div
@@ -15,16 +14,32 @@ function NoteCard(props) {
       onClick={() => selectHandler(note.id)}
     >
       <div className="note-wrapper">
-        <h3>{note.title}</h3>
+        <h3>
+          {note.title.length > 10
+            ? note.title.slice(0, 10) + "..."
+            : note.title}
+        </h3>
         <p className="formatted-date">
           {note.content.length > 0 ? formatDate(note.time) : null}
         </p>
-        <p>
-          {note.content.length > 60
-            ? subString.slice(0, 60) + "..."
-            : subString}
-          {note.content.length === 0 && "..."}
-        </p>
+        <div>
+          {note.content.length > 60 ? (
+            <div
+              id="note-body"
+              dangerouslySetInnerHTML={{
+                __html: note.content.substring(0, 60) + "...",
+              }}
+            ></div>
+          ) : (
+            <div
+              id="note-body"
+              dangerouslySetInnerHTML={{
+                __html:
+                  note.content != "<p><br></p>" ? note.content : "<p>...<p/>",
+              }}
+            ></div>
+          )}
+        </div>
       </div>
     </div>
   );
