@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Editor from "./components/Editor";
 import Viewer from "./components/Viewer";
@@ -6,7 +6,6 @@ import "./App.css";
 
 // fix scroll bar on entire page and addd scroll for the menu
 // prevent app from breaking if user navigates to a note that doesn't exist (or any page for that matter)
-// fix title overflow issue in viewer
 // fix left side menu border overlap
 
 function App() {
