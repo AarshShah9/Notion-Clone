@@ -7,6 +7,7 @@ import "./App.css";
 // fix scroll bar on entire page and addd scroll for the menu
 // prevent app from breaking if user navigates to a note that doesn't exist (or any page for that matter)
 // fix title overflow issue in viewer
+// fix left side menu border overlap
 
 function App() {
   return (

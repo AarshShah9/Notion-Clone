@@ -20,7 +20,7 @@ function NoteCard(props) {
             : note.title}
         </h3>
         <p className="formatted-date">
-          {note.content.length > 0 ? formatDate(note.time) : null}
+          {note.content.length > 0 ? formatDate(note.time) : <br />}
         </p>
         <div>
           {note.content.length > 60 ? (
@@ -35,12 +35,14 @@ function NoteCard(props) {
               id="note-body"
               dangerouslySetInnerHTML={{
                 __html:
-                  note.content != "<p><br></p>" ? note.content : "<p>...<p/>",
+                  note.content !== "<p><br></p>" ? note.content : "<p>...<p/>",
               }}
             ></div>
           )}
+          {note.content === "" && <p>...</p>}
         </div>
       </div>
+      {console.log(note.content)}
     </div>
   );
 }
