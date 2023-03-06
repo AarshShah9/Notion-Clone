@@ -5,7 +5,6 @@ import Viewer from "./components/Viewer";
 import "./App.css";
 
 // fix scroll bar on entire page and addd scroll for the menu
-// fix where delete button directs
 
 function App() {
   return (

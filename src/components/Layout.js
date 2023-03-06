@@ -92,7 +92,6 @@ function Layout() {
         Navigate(`/1`);
         setCurrNote(newNotes[0]);
       } else {
-        console.log("here");
         Navigate("/");
       }
     }
