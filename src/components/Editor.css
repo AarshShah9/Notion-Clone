@@ -49,6 +49,15 @@
   border: none;
 }
 
+.ql-container.ql-snow {
+  border: none;
+}
+
+.ql-toolbar.ql-snow {
+  border-left: none;
+  border-right: none;
+}
+
 .btns {
   display: flex;
   height: 100%;

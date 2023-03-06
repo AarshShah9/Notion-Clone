@@ -88,7 +88,13 @@ function Layout() {
       });
 
       setNotes(newNotes);
-      Navigate("/");
+      if (newNotes.length !== 0) {
+        Navigate(`/1`);
+        setCurrNote(newNotes[0]);
+      } else {
+        console.log("here");
+        Navigate("/");
+      }
     }
   };
 

@@ -1,6 +1,6 @@
 .menu {
   border-right: 1px solid #c3c2c4;
-  /* overflow-y: scroll; */
+  height: calc(100% - 66px);
 }
 
 .mini-header {
@@ -48,6 +48,7 @@
 
 #all-cards {
   overflow-y: auto;
+  overflow-x: hidden;
   /* height: 100%; */
 }
 

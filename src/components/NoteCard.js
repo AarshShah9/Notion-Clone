@@ -42,7 +42,6 @@ function NoteCard(props) {
           {note.content === "" && <p>...</p>}
         </div>
       </div>
-      {console.log(note.content)}
     </div>
   );
 }

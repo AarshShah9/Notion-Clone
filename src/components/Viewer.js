@@ -18,7 +18,7 @@ function Viewer() {
   ] = useOutletContext();
   return (
     <section className="editor">
-      <div className="header-section">
+      <div className="header-section viewer-header">
         <div className="input-block">
           <h2>
             {currNote.title.length < 20
