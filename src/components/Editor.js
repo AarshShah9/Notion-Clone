@@ -76,6 +76,7 @@ function Editor() {
             }}
             value={currNote.title}
           />
+
           <input
             className="date-input"
             type="datetime-local"
