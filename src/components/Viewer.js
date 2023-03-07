@@ -17,7 +17,7 @@ function Viewer() {
     editHandler,
   ] = useOutletContext();
   return (
-    <section className="editor">
+    <section className="viewer">
       <div className="header-section viewer-header">
         <div className="input-block">
           <h2>
