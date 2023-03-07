@@ -8,9 +8,34 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
+          <Route
+            path="/notes/:index/edit"
+            element={
+              <div id="content">
+                <Editor />
+              </div>
+            }
+          ></Route>
+          <Route
+            path="/notes/:index"
+            element={
+              <div id="content">
+                <Viewer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/notes"
+            element={
+              <div id="content" className="menu-spacer">
+                Select a note, or create a new one
+              </div>
+            }
+          ></Route>
           <Route
             path="/:index/edit"
             element={

@@ -10,9 +10,6 @@ import "../components/Layout.css";
 function Layout() {
   var { index } = useParams();
   const Navigate = useNavigate();
-  // if (window.location.pathname === "/") {
-  //   Navigate("/notes");
-  // }
 
   const [menu, setMenu] = useState(true);
   const [notes, setNotes] = useState(
