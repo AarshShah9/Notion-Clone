@@ -1,6 +1,10 @@
 .menu {
   border-right: 1px solid #c3c2c4;
-  height: calc(100% - 66px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  flex: 1;
 }
 
 .mini-header {
@@ -49,7 +53,8 @@
 #all-cards {
   overflow-y: auto;
   overflow-x: hidden;
-  /* height: 100%; */
+  height: calc(100%-115px);
+  /* max-height: calc(100%-115px); */
 }
 
 .no-notes {

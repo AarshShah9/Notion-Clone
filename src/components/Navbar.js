@@ -9,7 +9,8 @@ function Navbar(props) {
       </div>
 
       <div className="title">
-        <h1>Lotion</h1> <p>Like Notion, but worse.</p>
+        <h1>Lotion</h1>
+        <p>Like Notion, but worse.</p>
       </div>
 
       <div className="spacer"></div>

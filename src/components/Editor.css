@@ -1,6 +1,10 @@
 .editor {
   flex: 3;
+  /* height: calc(100% - 66px);*/
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
 }
 
 .header-section div {
@@ -43,7 +47,8 @@
 }
 
 .quill {
-  height: 100%;
+  height: calc(100% - 66px);
+  /* max-height: 100%; */
   padding: 0;
   margin: 0;
   border: none;
