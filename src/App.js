@@ -27,7 +27,6 @@ function App() {
               </div>
             }
           ></Route>
-
           <Route
             path="/notes"
             element={
