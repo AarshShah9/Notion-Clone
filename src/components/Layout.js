@@ -1,4 +1,5 @@
 import { useState, React, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import { v4 as uuidv4 } from "uuid";
 
@@ -10,6 +11,9 @@ import "../components/Layout.css";
 function Layout() {
   var { index } = useParams();
   const Navigate = useNavigate();
+  const location = useLocation();
+
+  const [notesUrl, setNotesUrl] = useState(false);
 
   const [menu, setMenu] = useState(true);
   const [notes, setNotes] = useState(
@@ -33,7 +37,16 @@ function Layout() {
       }
     }
     if (noteExists === false) {
-      Navigate("/");
+      if (notesUrl) {
+        Navigate("/notes");
+      } else {
+        Navigate("/");
+      }
+    }
+    if (location.pathname.includes("notes")) {
+      setNotesUrl(true);
+    } else {
+      setNotesUrl(false);
     }
   }, [index]);
 
@@ -44,7 +57,11 @@ function Layout() {
   const selectHandler = (id) => {
     const note = notes.find((note) => note.id === id);
     setCurrNote(note);
-    Navigate(`/${note.index}`);
+    if (notesUrl) {
+      Navigate(`/notes/${note.index}`);
+    } else {
+      Navigate(`/${note.index}`);
+    }
   };
 
   const saveHandler = (updatedNote) => {
@@ -62,7 +79,11 @@ function Layout() {
         return note;
       })
     );
-    Navigate(`/${updatedNote.index}`);
+    if (notesUrl) {
+      Navigate(`/notes/${updatedNote.index}`);
+    } else {
+      Navigate(`/${updatedNote.index}`);
+    }
   };
 
   const addHandler = () => {
@@ -75,7 +96,11 @@ function Layout() {
     };
     setNotes([...notes, newNote]);
     setCurrNote(newNote);
-    Navigate(`/${newNote.index}/edit`);
+    if (notesUrl) {
+      Navigate(`/notes/${newNote.index}/edit`);
+    } else {
+      Navigate(`/${newNote.index}/edit`);
+    }
   };
 
   const deleteHandler = (id) => {
@@ -89,16 +114,28 @@ function Layout() {
 
       setNotes(newNotes);
       if (newNotes.length !== 0) {
-        Navigate(`/1`);
+        if (notesUrl) {
+          Navigate(`/notes/1`);
+        } else {
+          Navigate(`/1`);
+        }
         setCurrNote(newNotes[0]);
       } else {
-        Navigate("/");
+        if (notesUrl) {
+          Navigate("/notes");
+        } else {
+          Navigate("/");
+        }
       }
     }
   };
 
   const editHandler = () => {
-    Navigate(`/${currNote.index}/edit`);
+    if (notesUrl) {
+      Navigate(`/notes/${currNote.index}/edit`);
+    } else {
+      Navigate(`/${currNote.index}/edit`);
+    }
   };
 
   const options = {

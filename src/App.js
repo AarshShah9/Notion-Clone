@@ -1,10 +1,8 @@
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Editor from "./components/Editor";
 import Viewer from "./components/Viewer";
 import "./App.css";
-
-// fix scroll bar on entire page and addd scroll for the menu
 
 function App() {
   return (
