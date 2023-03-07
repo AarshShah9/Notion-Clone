@@ -1,4 +1,4 @@
-import { useState, React, useEffect } from "react";
+import { React } from "react";
 import "../components/Viewer.css";
 import { useOutletContext } from "react-router-dom";
 import ReactQuill from "react-quill";
