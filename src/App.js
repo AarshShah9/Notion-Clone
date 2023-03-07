@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter basename="/notes">
+    <BrowserRouter basename="/">
       <Routes>
         <Route element={<Layout />}>
           <Route
@@ -24,7 +24,6 @@ function App() {
             element={
               <div id="content">
                 <Viewer />
-                {/* <Editor /> */}
               </div>
             }
           ></Route>
